@@ -28,3 +28,14 @@ Algumas das características e recursos do Amazon EMR incluem:
 * Segurança: O EMR oferece recursos de segurança que permitem proteger os dados durante o processamento, incluindo a integração com o AWS Identity and Access Management (IAM), além de suportar a criptografia de dados em repouso e em trânsito.
 
 * Ferramentas de Monitoramento e Diagnóstico: O EMR oferece ferramentas para monitorar a utilização do cluster, visualizar logs e diagnosticar problemas de desempenho.
+
+##Dicas importantes sobre EMR:
+
+* EMR é escalável e roda com BigData sob demanda na nuvem;
+
+* Já vem pré-instalado para Hadoop, Spark, Hive e Tensorflow;
+
+* Vamos usar EC2 como endpoint tipo node e S3 como bucket, que por sua vez, estará como arquivos;
+
+* Pode-se integrar outros serviçso AWS, como Kinesis e Dynamondb.
+
