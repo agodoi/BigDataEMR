@@ -29,7 +29,7 @@ Algumas das características e recursos do Amazon EMR incluem:
 
 * Ferramentas de Monitoramento e Diagnóstico: O EMR oferece ferramentas para monitorar a utilização do cluster, visualizar logs e diagnosticar problemas de desempenho.
 
-##Dicas importantes sobre EMR:
+## Dicas importantes sobre EMR:
 
 * EMR é escalável e roda com BigData sob demanda na nuvem;
 
