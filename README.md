@@ -35,7 +35,7 @@ Algumas das características e recursos do Amazon EMR incluem:
 
 * Já vem pré-instalado para Hadoop, Spark, Hive e Tensorflow;
 
-* O EMR usar EC2 no back-end como nós de trabalho e usa o S3 como bucket, que por sua vez, estará como arquivos;
+* O EMR usa EC2 no back-end como nós de trabalho e usa o S3 como bucket, que por sua vez, estará como arquivos. Veja a arquitetura acima para enteder melhor.
 
 * Pode-se integrar outros serviçso AWS, como Kinesis e Dynamondb.
 
