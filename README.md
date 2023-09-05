@@ -47,7 +47,9 @@ Algumas das características e recursos do Amazon EMR incluem:
 
 8) Grupo de Instância Primário (Master Instance Group): é o grupo principal de um cluster EMR. Este grupo é responsável por coordenar o cluster e gerenciar os recursos do cluster, como a distribuição de tarefas e a comunicação entre os nós. Geralmente, o nó mestre não executa tarefas de processamento de dados, mas desempenha um papel crucial na administração do cluster EMR. Normalmente, você tem apenas um grupo de instância principal em um cluster EMR.
 
-9) Grupo de Instância Núcleo (Core Instance Group): são usados para executar tarefas de processamento de dados no cluster EMR. Os nós do grupo de instância núcleo são onde os dados são armazenados e processados. Esses nós têm acesso aos dados armazenados no Hadoop Distributed File System (HDFS) do cluster e executam tarefas MapReduce, Spark ou outras tarefas de processamento de dados. Você pode ter um ou mais grupos de instância núcleo em um cluster EMR, dependendo da capacidade de processamento e armazenamento necessária para o seu trabalho.
+9) Grupo de Instância Núcleo (Core Instance Group): são usados para executar tarefas de processamento de dados no cluster EMR. Os nós do grupo de instância núcleo são onde os dados são armazenados e processados. Esses nós têm acesso aos dados armazenados no Hadoop Distributed File System (HDFS) do cluster e executam tarefas MapReduce, Spark ou outras tarefas de processamento de dados. Você pode ter um ou mais grupos de instância núcleo em um cluster EMR, dependendo da capacidade de processamento e armazenamento necessária para o seu trabalho. O Núcleo é o mesmo que um EC2 secundário. Ele obedece o EC2 primário.
+    
+10) Instâncias Tarefas (Task Instances): são usadas para trabalhos temporários, que não exigem armazenamento persistente. Elas não fazem parte do sistema de armazenamento do cluster, ou seja, não mantêm cópias de dados no HDFS. As instâncias task são usadas principalmente para aumentar a capacidade de processamento temporariamente, e elas podem ser adicionadas ou removidas conforme necessário. Por não armazenarem dados persistentes, as instâncias task são mais efêmeras e são usadas para cargas de trabalho que podem ser distribuídas em várias instâncias temporárias. Elas são ideais para trabalhos de processamento em lote e tarefas de curta duração.
 
 
 # Passo-01: Criando um cluster EMR
@@ -58,15 +60,15 @@ b) Clique no botão laranja **Criar cluster**
 
 c) Em **Nome**, coloque o nome desejado, vou sugerir **EMR-BigData-01**. Em **Versão** deixa como está. 
 
-d) Em **Pacotes de aplicativos**, escolha **Spark**.
+d) Em **Pacotes de aplicativos**, deixe em **Spark**.
 
 e) Em **Configuração do cluster**, deixe em **Grupos de instâncias**.
 
 e.1) Em **Grupos de instâncias**, na opção **Primário**, deixe como está. Em **Núcleo**, também, deixe como está. Mas leia os itens **(8)** e **(9)** do **Dicas importantes sobre EMR** para entender quais os papeis de cada EC2 sendo instanciado.
 
-e.2) Em **Tarefa 1 de 1**, coloque o nome **BigData-Tarefa01**. Isso é a sua primeira tarefa sendo criada. Uma tarefa equivale a um processamento de Big Data.
+e.2) Em **Tarefa 1 de 1**, coloque o nome **BigData-Tarefa01**. Esse nome vai parar no EC2 **Primário**, isto é, esse nome é de um EC2 que o **Primário** vai coordenar. Uma tarefa equivale a um processamento exclusivo de Big Data.
 
-f) Em **Opções de provisionamento e escalabilidade do cluster** selecione a opção **Usar escalabilidade gerenciada pelo EMR**. Não precisa mudar mais nada nessa opção de configuração, mas verifique quantos cluster mínimos e máximos você terá e novamentem, reforce seu conceito olhando os itens **(8)** e **(9)** do **Dicas importantes sobre EMR** para entender o que são esses números e qual a diferença entre **Grupo de Instância Primário** e **Núcleo**. 
+f) Em **Opções de provisionamento e escalabilidade do cluster** selecione a opção **Definir o tamanho do cluster manualmente**. Não precisa mudar mais nada nessa opção de configuração, mas verifique quantos **Nucleos** e  máximos você terá e novamente, reforce seu conceito olhando os itens **(8)**, **(9)** e **(10)** do **Dicas importantes sobre EMR** para entender o que são esses números e qual a diferença entre **Grupo de Instância Primário**, **Núcleo** e **Tarefas**.    
 
 g) Em **Redes**, crie uma VPC nova chamada **VPC-BigData-Aula01**. No momento de criar a VPC, clicando em **Criar VPC**, marque **Somente VPC** e coloque o nome **VPC-BigData-Aula01**. O IPV4 pode deixar a subrede genérica **10.0.0.0/24**.
 
@@ -74,3 +76,14 @@ g.1) Agora, de volta na opção **Redes**, clique na bolinha de atualizar que va
 
 h) Em **Subrede**, você vai ter que criar uma nova, pois a **default** ficou sem usar. Já que você criou uma nova VPC, terá que criar uma nova subrede. Clique em **Criar subrede**, depois aponte para VPC que você acabou de criar, coloque o nome da subrede de **Sub_PublicaBigData**, aponte para **us-east-1a**, e no IPV4, coloque a mesma faixa de endereço **10.0.0.0/24**.
 
+i) Em **Término do cluster**, deixe em **Encerrar o cluster manualmente**, mas não esqueça esse trem ligado quando encerrar essa atividade, ou seus créditos (U$100) vão pro espaço.
+
+j) Em **Configuração de segurança e par de chaves do EC2 - opcional**, vá na linha de **Par de chaves do Amazon EC2 para o SSH do cluster** e clique em **Navegar** e pegue uma chave PEM que você já tenha criado. Mas anote isso para não esquecer depois ou terá que fazer tudo novamente. Minha sugestão é que você reaproveite a chave **FlaskServerUbuntu**
+
+k) Em **Perfil de serviço do Amazon EMR**, vá em **Função de serviço** e escolha **EMR_AutoScalling_DefaultRole**.
+
+l) Em **Perfil de instância do EC2 para o Amazon EMR**, vá em **Perfil de instância** e escolha **EMR_EC2_DefaultRole**.
+
+m) Clique no botão amarelo **Criar cluster**.
+
+n) Agora volte no Buscar do AWS, digite **EMR** e você verá que seu cluster **EMR-BigData-01** está em fase de preparação. Isso é normal. Precisa aguardar alguns minutos.
