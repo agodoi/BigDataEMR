@@ -87,3 +87,8 @@ l) Em **Perfil de instância do EC2 para o Amazon EMR**, vá em **Perfil de inst
 m) Clique no botão amarelo **Criar cluster**.
 
 n) Agora volte no Buscar do AWS, digite **EMR** e você verá que seu cluster **EMR-BigData-01** está em fase de preparação. Isso é normal. Precisa aguardar alguns minutos.
+
+# Passo-02: Fazendo downloade um grande arquivo
+
+a) Vá em [StackOverflow](https://insights.stackoverflow.com/survey)
+   
