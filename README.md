@@ -90,5 +90,5 @@ n) Agora volte no Buscar do AWS, digite **EMR** e você verá que seu cluster **
 
 # Passo-02: Fazendo downloade um grande arquivo
 
-a) Vá em [StackOverflow](https://insights.stackoverflow.com/survey)
+a) Vá em [StackOverflow](https://insights.stackoverflow.com/survey) que é um site que hospeda os resultados da Pesquisa de Desenvolvedores do Stack Overflow, uma pesquisa anual amplamente reconhecida que coleta dados sobre a comunidade de desenvolvedores de software em todo o mundo e faça o download do arquivo CSV.zip do ano passado. Esse arquivo vai representar nosso Big Data. Descompacte esse arquivo zip e você vai encontrar outros 4 arquivos. Abra o arquivo de maior tamanho em Excel e terá mais de 700mil linhas de dados. Isso é um Big Data já.
    
