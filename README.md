@@ -96,7 +96,7 @@ Faça o download do arquivo CSV.zip do ano passado. Esse arquivo vai representar
 
 b) Deixe esses 4 arquivos aí no seu computador que já vamos fazer um upload dele em um serviço de armazenamento S3 da AWS.
 
-# Passo-03: Criando um S3
+# Passo-03: Criando um bucket S3
 
 a) No busca do AWS, digite **S3**. Note que já existe um **aws-logs-xxx-us_east-1** na listagem do seu bucket S3. Isso é normal quando você cria um serviço EMR. Não vamos usar esse S3 bucket por enquanto e sim, criar um novo.
 
@@ -107,3 +107,14 @@ c) Deixe-o **bloquear todo o acesso público**, isso significa que o seu S3 não
 d) Em **Versionamento de bucket** deixe como **Ativar**. Isso significa que você poderá ter várias versões de seu processamento de Big Data e recuperar versões seguras de resultados confiáveis do seu processamento.
 
 e) Não precisa mexer em mais nenhum outra configuração, então, basta clicar no botão laranja para criar.
+
+f) Retorne na sua lista de buckets S3, clique no link azul do bucket que acabou de criar, e crie **uma nova pasta** e coloque o nome de **emr-fonte-dados**. Você é livre para criar o nome que quiser.
+
+g) Em **Criptografia no lado do servidor** clique em **Especificar chave de criptografia** e depois **Usar configurações de bucket para criptografia padrão**.
+
+h) Clique no botão laranja para confirmar.
+
+i) Retorne à pasta que acabou de criar, clique no link azul dela, e faça o upload do arquivo *CSV de maior tamanho que puxou no Passo-02. Caso tenha algum espaço em branco no seu arquivo CSV, remova-o ou substitua-o com underline ou traço. Clique em carregar.
+
+
+
