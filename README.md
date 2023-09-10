@@ -116,7 +116,7 @@ h) Clique no botão laranja para confirmar.
 
 i) Retorne à pasta que acabou de criar, clique no link azul dela, e faça o upload do arquivo *CSV de maior tamanho que puxou no Passo-02. Caso tenha algum espaço em branco no seu arquivo CSV, remova-o ou substitua-o com underline ou traço. Clique em carregar.
 
-# Passo-04: Escrevendo o código de processamento
+# Passo-04: Escrevendo o código Spark de processamento
 
 
 
