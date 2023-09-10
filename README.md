@@ -76,7 +76,7 @@ g.1) Agora, de volta na opção **Redes**, clique na bolinha de atualizar que va
 
 h) Em **Subrede**, você vai ter que criar uma nova, pois a **default** ficou sem usar. Já que você criou uma nova VPC, terá que criar uma nova subrede. Clique em **Criar subrede**, depois aponte para VPC que você acabou de criar, coloque o nome da subrede de **Sub_PublicaBigData**, aponte para **us-east-1a**, e no IPV4, coloque a mesma faixa de endereço **10.0.0.0/24**.
 
-i) Em **Término do cluster**, deixe em **Encerrar o cluster manualmente**, mas não esqueça esse trem ligado quando encerrar essa atividade, ou seus créditos (U$100) vão pro espaço.
+i) Em **Término do cluster**, deixe em **Encerrar o cluster automaticamente após 1h**, assim, esse trem será desligado quando encerrar essa atividade, ou seus créditos (U$100) vão pro espaço.
 
 j) Em **Configuração de segurança e par de chaves do EC2 - opcional**, vá na linha de **Par de chaves do Amazon EC2 para o SSH do cluster** e clique em **Navegar** e pegue uma chave PEM que você já tenha criado. Mas anote isso para não esquecer depois ou terá que fazer tudo novamente. Minha sugestão é que você reaproveite a chave **FlaskServerUbuntu**
 
@@ -98,4 +98,12 @@ b) Deixe esses 4 arquivos aí no seu computador que já vamos fazer um upload de
 
 # Passo-03: Criando um S3
 
-a) No busca do AWS, digite **S3**
+a) No busca do AWS, digite **S3**. Note que já existe um **aws-logs-xxx-us_east-1** na listagem do seu bucket S3. Isso é normal quando você cria um serviço EMR. Não vamos usar esse S3 bucket por enquanto e sim, criar um novo.
+
+b) Clique no botão laranja para criar um novo bucket e nomeie-o da forma que achar amigável, por exemplo, **s3-bigdata-01**, mas não tente usar esse nome porque ele já foi usado e todos os nomes de S3 na AWS devem ser inéditos e exclusivos mundialmente. Só lembrando, que o nome do bucket não pode ter letras maiúsculas e nem underline.
+
+c) Deixe-o **bloquear todo o acesso público**, isso significa que o seu S3 não estará visível na Internet. Isso é uma medida de segurança importante para garantir que os dados armazenados no seu bucket do S3 não fiquem expostos acidentalmente ao público. É sempre recomendável seguir as práticas recomendadas de segurança ao configurar buckets no Amazon S3 e garantir que apenas os recursos e usuários autorizados tenham acesso aos dados armazenados.
+
+d) Em **Versionamento de bucket** deixe como **Ativar**. Isso significa que você poderá ter várias versões de seu processamento de Big Data e recuperar versões seguras de resultados confiáveis do seu processamento.
+
+e) Não precisa mexer em mais nenhum outra configuração, então, basta clicar no botão laranja para criar.
