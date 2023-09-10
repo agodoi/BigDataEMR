@@ -31,15 +31,15 @@ Algumas das características e recursos do Amazon EMR incluem:
 
 ## Dicas importantes sobre EMR:
 
-1) EMR é escalável e roda com Big Data sob demanda na nuvem. Portanto, você não precisa operar o Big Data o tempo todo, pois isso custa caro;
+1) EMR é escalável e roda com Big Data sob demanda na nuvem. Portanto, você não precisa operar o Big Data o tempo todo, pois isso custa caro. Ligue e desligue seu EMR;
 
 2) Já vem pré-instalado para Hadoop, Spark, Hive e Tensorflow;
 
 3) O EMR é um EC2 primário que invoca outros EC2 no back-end como nós de trabalho secundários;
 
-4) O EMR também usa o S3 como bucket, que por sua vez, estará como arquivos. Veja a arquitetura acima para enteder melhor;
+4) O EMR também usa o S3 como bucket, que por sua vez, armazenará arquivos. Veja a arquitetura acima para enteder melhor;
 
-5) O EMR/EC2 primário + EC2 nós secundários formam um cluster EMR;
+5) O EMR/EC2 primário + EC2 nós secundários formam um cluster AWS EMR;
 
 6) Essa arquitetura é diferente de um computador comum: no seu laptop, os arquivos são armazenados de forma centralizada e única num mesmo dispositivo. No EMR, os arquivos são distribuídos e processados em partes ao mesmo tempo. O S3 permite que os arquivos (objetos) possam ser acessados em todos os cantos dentro do seu cluster;
 
@@ -90,7 +90,9 @@ n) Agora volte na busca do AWS, digite **EMR** e você verá que seu cluster **E
 
 # Passo-02: Fazendo download de um "grande arquivo" (não é tão grande, mas serve de exemplo)
 
-a) Vá em [StackOverflow](https://insights.stackoverflow.com/survey) que é um site que hospeda os resultados da Pesquisa de Desenvolvedores do Stack Overflow, uma pesquisa anual amplamente reconhecida que coleta dados sobre a comunidade de desenvolvedores de software em todo o mundo e faça o download do arquivo CSV.zip do ano passado. Esse arquivo vai representar nosso Big Data. Descompacte esse arquivo zip e você vai encontrar outros 4 arquivos. Abra o arquivo de maior tamanho em Excel e terá mais de 700mil linhas de dados. Isso é um Big Data já.
+a) Vá em [StackOverflow](https://insights.stackoverflow.com/survey) que é um site que hospeda os resultados da Pesquisa de Desenvolvedores do Stack Overflow, uma pesquisa anual amplamente reconhecida que coleta dados sobre a comunidade de desenvolvedores de software em todo o mundo. 
+
+Faça o download do arquivo CSV.zip do ano passado. Esse arquivo vai representar nosso Big Data. Descompacte esse arquivo zip e você vai encontrar outros 4 arquivos (um *.TXT, um *.PDF e dois *.CSV). Abra o arquivo de maior tamanho em Excel e terá mais de 700mil linhas de dados. Isso é um Big Data já.
 
 b) Deixe esses 4 arquivos aí no seu computador que já vamos fazer um upload dele em um serviço de armazenamento S3 da AWS.
 
