@@ -169,10 +169,13 @@ Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são su
 - Por isso, fornece otimizações para acelerar consultas;
 - Foi criado para suportar compressão;
 - O arquivo é dividido em dados e metadados;
-- Está presente no Spark, Hive e no ecossistema Hadoop em geral.
+- Está presente no Spark, Hive e no ecossistema Hadoop em geral;
+- Você pode gravar em Parquet e ler em Parquet
 
 ## Exemplo:
 | Formato | Espaço Utilizado | Tempo Excecução | 
 | --- | --- | --- |
-| CSV| 2TB | 472seg |
-| Parquet | 260GB | 13,56seg |
+| CSV| 2TB | 472 seg |
+| Parquet | 260GB | 13,56 seg |
+
+## Colab de exemplo: [AWS_EMR_Parquet](https://colab.research.google.com/drive/1Hd2eMc7kf3h0JP60_wB30G2s51pjzcGu?usp=sharing)
