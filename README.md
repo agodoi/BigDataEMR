@@ -12,7 +12,7 @@ Para iniciar essa prática, veja alguns conceitos importantes sobre o [Hadoop]
 
 <picture>
    <source media="(prefers-color-scheme: light)" srcset="https://github.com/agodoi/BigDataEMR/blob/main/imgs/csv_parquet.png">
-   <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/csv_parquet.png)">
+   <img alt="Estrutura_Parquet" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/csv_parquet.png)">
 </picture>
 
 O Amazon Elastic MapReduce (Amazon EMR) é um serviço de computação em nuvem oferecido pela AWS que permite processar e analisar grandes volumes de dados de maneira escalável e econômica. O EMR é projetado especificamente para processamento distribuído e análise de dados em larga escala usando o framework Apache Hadoop e outras ferramentas relacionadas.
