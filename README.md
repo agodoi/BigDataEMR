@@ -174,6 +174,8 @@ Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são su
 ## Exemplo:
 | Formato | Espaço Utilizado | Tempo Excecução | 
 | --- | --- | --- |
+
 | CSV| 2TB | 472seg |
+
 | Parquet | 260GB | 13,56seg |
 
