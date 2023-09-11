@@ -9,6 +9,12 @@ Para iniciar essa prática, veja alguns conceitos importantes sobre o [Hadoop]
    <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/BigDataAWS.jpg)">
 </picture>
 
+
+<picture>
+   <source media="(prefers-color-scheme: light)" srcset="https://github.com/agodoi/BigDataEMR/blob/main/imgs/csv_parquet.png">
+   <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/csv_parquet.png)">
+</picture>
+
 O Amazon Elastic MapReduce (Amazon EMR) é um serviço de computação em nuvem oferecido pela AWS que permite processar e analisar grandes volumes de dados de maneira escalável e econômica. O EMR é projetado especificamente para processamento distribuído e análise de dados em larga escala usando o framework Apache Hadoop e outras ferramentas relacionadas.
 
 A principal ideia por trás do Amazon EMR é permitir que as empresas processem e analisem grandes conjuntos de dados de maneira eficiente, sem a necessidade de investir em infraestrutura de hardware e configuração complexa. Ele permite executar tarefas como processamento de dados, análise de logs, mineração de dados, aprendizado de máquina, entre outras, em clusters de máquinas virtuais na nuvem.
@@ -50,6 +56,36 @@ Algumas das características e recursos do Amazon EMR incluem:
 9) Grupo de Instância Núcleo (Core Instance Group): são usados para executar tarefas de processamento de dados no cluster EMR. Os nós do grupo de instância núcleo são onde os dados são armazenados e processados. Esses nós têm acesso aos dados armazenados no Hadoop Distributed File System (HDFS) do cluster e executam tarefas MapReduce, Spark ou outras tarefas de processamento de dados. Você pode ter um ou mais grupos de instância núcleo em um cluster EMR, dependendo da capacidade de processamento e armazenamento necessária para o seu trabalho. O Núcleo é o mesmo que um EC2 secundário. Ele obedece o EC2 primário.
     
 10) Instâncias Tarefas (Task Instances): são usadas para trabalhos temporários, que não exigem armazenamento persistente. Elas não fazem parte do sistema de armazenamento do cluster, ou seja, não mantêm cópias de dados no HDFS. As instâncias task são usadas principalmente para aumentar a capacidade de processamento temporariamente, e elas podem ser adicionadas ou removidas conforme necessário. Por não armazenarem dados persistentes, as instâncias task são mais efêmeras e são usadas para cargas de trabalho que podem ser distribuídas em várias instâncias temporárias. Elas são ideais para trabalhos de processamento em lote e tarefas de curta duração.
+    
+12) Os arquivos são gravados em formato parquet.
+
+
+# Passo-01: Formato Parquet
+
+Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são suas características e vantagens?
+
+- É um formato de armazenamento em coluna (ao invés de linha como acontece nos formatos de armazenamento tradicionais dos bancos de dados);
+- Por isso, fornece otimizações para acelerar consultas;
+- Foi criado para suportar compressão;
+- O arquivo é dividido em dados e metadados;
+- Está presente no Spark, Hive e no ecossistema Hadoop em geral;
+- Você pode gravar em Parquet e ler em Parquet
+
+Na figura a seguir, você entenderá como o arquivo parquet é estruturado em colunas.
+
+
+<picture>
+   <source media="(prefers-color-scheme: light)" srcset="">
+   <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE]()">
+</picture>
+
+## Exemplo:
+| Formato | Espaço Utilizado | Tempo Excecução | 
+| --- | --- | --- |
+| CSV| 2TB | 472 seg |
+| Parquet | 260GB | 13,56 seg |
+
+## Colab de exemplo: [AWS_EMR_Parquet](https://colab.research.google.com/drive/1Hd2eMc7kf3h0JP60_wB30G2s51pjzcGu?usp=sharing)
 
 
 # Passo-01: Criando um cluster EMR
@@ -161,21 +197,3 @@ if __name__ == '__main__':
     main()
 ```
 
-# Passo-05: Formato Parquet
-
-Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são suas características e vantagens?
-
-- É um formato de armazenamento em coluna (ao invés de linha como acontece nos formatos de armazenamento tradicionais dos bancos de dados);
-- Por isso, fornece otimizações para acelerar consultas;
-- Foi criado para suportar compressão;
-- O arquivo é dividido em dados e metadados;
-- Está presente no Spark, Hive e no ecossistema Hadoop em geral;
-- Você pode gravar em Parquet e ler em Parquet
-
-## Exemplo:
-| Formato | Espaço Utilizado | Tempo Excecução | 
-| --- | --- | --- |
-| CSV| 2TB | 472 seg |
-| Parquet | 260GB | 13,56 seg |
-
-## Colab de exemplo: [AWS_EMR_Parquet](https://colab.research.google.com/drive/1Hd2eMc7kf3h0JP60_wB30G2s51pjzcGu?usp=sharing)
