@@ -75,8 +75,8 @@ Na figura a seguir, você entenderá como o arquivo parquet é estruturado em co
 
 
 <picture>
-   <source media="(prefers-color-scheme: light)" srcset="">
-   <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE]()">
+   <source media="(prefers-color-scheme: light)" srcset="https://github.com/agodoi/BigDataEMR/blob/main/imgs/orc-file-structure.png">
+   <img alt="Arquitetura Inicial" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/orc-file-structure.png)">
 </picture>
 
 ## Exemplo:
