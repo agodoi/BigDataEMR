@@ -225,3 +225,9 @@ e.5) Pronto! Arquivo main executado e sua tela deve ficar igual a seguir:
    <source media="(prefers-color-scheme: light)" srcset="https://github.com/agodoi/BigDataEMR/blob/main/imgs/main_py.png">
    <img alt="MainPy" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/main_py.png)">
 </picture>
+
+f) Para conferir o que aconteceu, busque nos textos do seu terminal, as frases **Numero total de gravacoes na fonte de dados**, **O numero de profissionais que trabalham mais que 45 horas por semana nos EUA:** e **Dados selecionados foram salvos com sucesso no s3**
+
+g) Volte no seu buckets, e terá uma nova pasta chamada **data-output** e dentro dessa pasta, terá os arquivos **paquet**
+
+i) Finalizado o processamento, **termine seu cluster**, isto é, desligue-o.
