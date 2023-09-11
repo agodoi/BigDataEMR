@@ -124,12 +124,13 @@ from pyspark.sql.functions import col
 
 # Definindo o caminho do arquivo de dados de entrada no S3
 S3_DATA_SOURCE_PATH = 's3://... *.csv'    
+
 #vá no seu respectivo bucket S3, copie o URI e cole aqui acima
 #exemplo: s3://s3-bigdata-01/emr-fonte-dados/
-#e copie o nome do bucket *.csv também e cole no path
+#e copie o nome do bucket *.csv também e cole no final do path
 
 # Definindo o caminho para onde os dados processados serão escritos no S3
-S3_DATA_OUTPUT_PATH = 's3://.../data-output'    #estamos criando um dir de saída de dados
+S3_DATA_OUTPUT_PATH = 's3://.../data-output'    #estamos criando um dir de saída de dados. No lugar dos ... cole a memsa URI do bucket S3 recém criado
 
 # Função principal do programa
 def main():
