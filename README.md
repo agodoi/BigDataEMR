@@ -161,6 +161,18 @@ if __name__ == '__main__':
     main()
 ```
 
+# Passo-05: Formato Parquet
 
+Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são suas características e vantagens?
 
+- É um formato de armazenamento em coluna (ao invés de linha como acontece nos formatos de armazenamento tradicionais dos bancos de dados);
+- Por isso, fornece otimizações para acelerar consultas;
+- Foi criado para suportar compressão;
+- O arquivo é dividido em dados e metadados;
+- Está presente no Spark, Hive e no ecossistema Hadoop em geral.
+
+## Exemplo:
+| Formato | Espaço Utilizado | Tempo Excecução | 
+CSV      |   2TB   | 472seg   |
+Parquet   |   260GB   | 13,56seg   |
 
