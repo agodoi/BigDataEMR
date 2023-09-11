@@ -76,7 +76,7 @@ g.1) Agora, de volta na opção **Redes**, clique na bolinha de atualizar que va
 
 h) Em **Subrede**, você vai ter que criar uma nova, pois a **default** ficou sem usar. Já que você criou uma nova VPC, terá que criar uma nova subrede. Clique em **Criar subrede**, depois aponte para VPC que você acabou de criar, coloque o nome da subrede de **Sub_PublicaBigData**, aponte para **us-east-1a**, e no IPV4, coloque a mesma faixa de endereço **10.0.0.0/24**.
 
-i) Em **Término do cluster**, deixe em **Encerrar o cluster automaticamente após 1h**, assim, esse trem será desligado quando encerrar essa atividade, ou seus créditos (U$100) vão pro espaço.
+i) Em **Término do cluster**, deixe em **Encerrar o cluster automaticamente após 1h**, assim, esse trem será desligado quando encerrar essa atividade, ou seu dinheiro irá pro espaço.
 
 j) Em **Configuração de segurança e par de chaves do EC2 - opcional**, vá na linha de **Par de chaves do Amazon EC2 para o SSH do cluster** e clique em **Navegar** e pegue uma chave PEM que você já tenha criado. Mas anote isso para não esquecer depois ou terá que fazer tudo novamente. Minha sugestão é que você reaproveite a chave **FlaskServerUbuntu**
 
@@ -117,6 +117,48 @@ h) Clique no botão laranja para confirmar.
 i) Retorne à pasta que acabou de criar, clique no link azul dela, e faça o upload do arquivo *CSV de maior tamanho que puxou no Passo-02. Caso tenha algum espaço em branco no seu arquivo CSV, remova-o ou substitua-o com underline ou traço. Clique em carregar.
 
 # Passo-04: Escrevendo o código Spark de processamento
+```
+# Importando as bibliotecas necessárias do PySpark
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Definindo o caminho do arquivo de dados de entrada no S3
+S3_DATA_SOURCE_PATH = 's3://... *.csv'    
+#vá no seu respectivo bucket S3, copie o URI e cole aqui acima
+#exemplo: s3://s3-bigdata-01/emr-fonte-dados/
+#e copie o nome do bucket *.csv também e cole no path
+
+# Definindo o caminho para onde os dados processados serão escritos no S3
+S3_DATA_OUTPUT_PATH = 's3://.../data-output'    #estamos criando um dir de saída de dados
+
+# Função principal do programa
+def main():
+    # Criando uma sessão Spark com um nome de aplicativo
+    spark = SparkSession.builder.appName('AWSMapReduceDemoApp').getOrCreate()
+    
+    # Lendo o arquivo CSV de entrada e inferindo o cabeçalho
+    all_data = spark.read.csv(S3_DATA_SOURCE_PATH, header=True)
+    
+    # Imprimindo o número total de registros no arquivo de dados de entrada
+    print('Numero total de gravacoes na fonte de dados: %s' % all_data.count())
+    
+    # Filtrando os dados para selecionar profissionais dos Estados Unidos que trabalham mais de 45 horas por semana
+    selected_data = all_data.where((col('Country') == 'United States') & (col('WorkWeekHrs') > 45))
+    
+    # Imprimindo o número de profissionais selecionados
+    print('O numero de profissionais que trabalham mais que 45 horas por semana nos EUA: %s' % selected_data.count())
+    
+    # Escrevendo os dados selecionados no formato Parquet no caminho de saída no S3
+    selected_data.write.mode('overwrite').parquet(S3_DATA_OUTPUT_PATH)
+    
+    # Imprimindo uma mensagem de sucesso
+    print('Dados selecionados foram salvos com sucesso no s3: %s' % S3_DATA_OUTPUT_PATH)
+
+# Verifica se o código está sendo executado como um script independente
+if __name__ == '__main__':
+    # Chama a função principal para iniciar o processamento
+    main()
+```
 
 
 
