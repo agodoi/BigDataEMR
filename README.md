@@ -197,3 +197,31 @@ if __name__ == '__main__':
     main()
 ```
 
+# Passo-05: Colocando esse código dentro do EC2
+
+Seu EC2 ainda não possui conexão SSH (porta 22) para você colocar o código-fonte do passo anterior. Então, primeiro, tem que habilitar essa porta no **Security groups for Master** do seu EC2.
+
+a) Vá no seu EMR no EC2 criado recentemente no **Passo-01**.
+
+b) Entre nele, e depois busque por **Grupo de segurança para Primário (mater node)**
+
+c) Clique em **Editar regras de entradas**, vá até o fim, e clique em **Adicionar** e selecione SSH e **origem** coloque **Meu IP** ou **0.0.0.0/0** (não é uma boa prática, mas só fique atento a isso) e clique no botão laranja para confirmar.
+
+d) Vá em **Conexões**, pegue o link SSH **ssh -i ...**, e cole em um terminal qualquer, tipo Windows PowerShell. No seu terminal, esteja dentro da pasta onde você salvou a chave PEM do EC2 principal.
+
+e) Após ter logado com sucesso no EC2, você precisa criar um arquivo main.py para salvar o código do Passo-04.
+
+e.1) Para isso, na raiz do seu EC2, digite **vi main.py**. Isso serve para criar um arquivo em branco.
+
+e.2) Pressione **i** no teclado para insert. Vá no seu editor de código (VS Code, por exemplo), copie o código-fonte e cole no arquivo em branco aberto no seu terminal.
+
+e.3) Pressione **esc**, depois **:wq** [enter] e daí vai sair do editor de texto
+
+e.4) De volta para raiz do seu EC2, digite **spark-submit main.py**
+
+e.5) Pronto! Arquivo main executado e sua tela deve ficar igual a seguir:
+
+<picture>
+   <source media="(prefers-color-scheme: light)" srcset="https://github.com/agodoi/BigDataEMR/blob/main/imgs/main_py.png">
+   <img alt="MainPy" src="[YOUR-DEFAULT-IMAGE](https://github.com/agodoi/BigDataEMR/blob/main/imgs/main_py.png)">
+</picture>
