@@ -60,7 +60,7 @@ Algumas das características e recursos do Amazon EMR incluem:
 12) Os arquivos são gravados em formato parquet.
 
 
-# Passo-01: Formato Parquet
+# Experiência com Formato Parquet
 
 Pronuncia-se "parquê" é um formato novo exclusivo para Big Data. Quais são suas características e vantagens?
 
